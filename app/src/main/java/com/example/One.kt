@@ -1,7 +1,6 @@
 package com.example
 
 import com.example.util.LogUtil
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,9 +17,9 @@ interface One {
     fun getName()
 }
 
-class ImplementOne @Inject constructor() : One {
+class ImplementOne @Inject constructor(private val name: String) : One {
     override fun getName() {
-        LogUtil.d("get name ")
+        LogUtil.d("get name $name")
     }
 }
 
@@ -32,6 +31,7 @@ class Main @Inject constructor(private val one: One) {
 
 
 //recommended approach coz less Boilerplate
+/*
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class AppModule {
@@ -39,13 +39,20 @@ abstract class AppModule {
     @Singleton
     abstract fun binding(implementOne: ImplementOne):One
 }
+*/
 
 //not recommended approach coz more Boilerplate
-/*
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
+
+    //only for inbuilt classes
     @Provides
     @Singleton
-    fun binding():One=ImplementOne()
-}*/
+    fun getName(): String = "Vijay"
+
+    @Provides
+    @Singleton
+    fun binding(name: String):
+            One = ImplementOne(name)
+}

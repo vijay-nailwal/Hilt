@@ -17,4 +17,9 @@ class MainActivity : AppCompatActivity() {
         main.getName()
 
     }
+
+    companion object{
+        const val fName="Vijay"
+        const val fLame="Nailwal"
+    }
 }

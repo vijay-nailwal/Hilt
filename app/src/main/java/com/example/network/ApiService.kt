@@ -1,6 +1,6 @@
 package com.example.network
 
-import com.example.Model.Post
+import com.example.model.Post
 import retrofit2.http.GET
 
 interface ApiService {

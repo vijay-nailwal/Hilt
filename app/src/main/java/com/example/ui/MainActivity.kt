@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.adapter.PostAdapter
-import com.example.Model.Post
+import com.example.model.Post
 import com.example.viewModel.PostViewModel
 import com.example.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint

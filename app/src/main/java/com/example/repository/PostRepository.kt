@@ -1,6 +1,6 @@
 package com.example.repository
 
-import com.example.Model.Post
+import com.example.model.Post
 import com.example.network.ApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

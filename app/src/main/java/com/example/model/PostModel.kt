@@ -1,4 +1,4 @@
 package com.example.model
 
- data class Post(val body:String) {
+ data class PostModel(val body:String) {
 }

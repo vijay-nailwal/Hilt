@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.adapter.PostAdapter
-import com.example.model.Post
+import com.example.model.PostModel
 import com.example.viewModel.PostViewModel
 import com.example.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setUi()
         postViewModel.getPost()
         postViewModel.postLiveData.observe(this, Observer { response ->
-            postAdapter.setData(response as ArrayList<Post>)
+            postAdapter.setData(response as ArrayList<PostModel>)
         })
     }
 

@@ -1,4 +1,4 @@
-package com.example.Utils
+package com.example.utils
 
 import android.util.Log
 import java.lang.Exception

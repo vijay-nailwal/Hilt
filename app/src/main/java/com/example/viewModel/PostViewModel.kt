@@ -1,12 +1,12 @@
-package com.example.ViewModel
+package com.example.viewModel
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.Model.Post
-import com.example.Repository.PostRepository
-import com.example.Utils.LogUtil
+import com.example.repository.PostRepository
+import com.example.utils.LogUtil
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

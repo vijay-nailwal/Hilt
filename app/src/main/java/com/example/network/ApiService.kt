@@ -1,4 +1,4 @@
-package com.example.Network
+package com.example.network
 
 import com.example.Model.Post
 import retrofit2.http.GET

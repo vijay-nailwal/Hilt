@@ -1,41 +1,41 @@
-package com.example.Ui
+package com.example.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.Adapter.PostAdapter
+import com.example.adapter.PostAdapter
 import com.example.Model.Post
-import com.example.ViewModel.PostViewModel
-import com.example.R
+import com.example.viewModel.PostViewModel
+import com.example.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
     private lateinit var postAdapter: PostAdapter
     private val postViewModel: PostViewModel by viewModels()
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         setUi()
         postViewModel.getPost()
-        postViewModel.postLiveData.observe(this, Observer {response->
-         postAdapter.setData(response as ArrayList<Post>)
+        postViewModel.postLiveData.observe(this, Observer { response ->
+            postAdapter.setData(response as ArrayList<Post>)
         })
     }
 
     private fun setUi() {
-        recyclerView=findViewById(R.id.recyclerView)
         postAdapter= PostAdapter(this, ArrayList())
-        recyclerView.apply {
+        binding.recyclerView.apply {
             setHasFixedSize(true)
-            layoutManager=LinearLayoutManager(this@MainActivity)
-            adapter=postAdapter
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = postAdapter
         }
     }
 }

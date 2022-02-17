@@ -1,7 +1,7 @@
-package com.example.Dagger
+package com.example.module
 
-import com.example.Network.ApiService
-import com.example.Utils.Constants
+import com.example.network.ApiService
+import com.example.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
